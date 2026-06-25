@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ton Prénom Nom — Ingénieur Numérique & Pédagogique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">Portfolio</span>
+    <ul class="nav-links">
+      <li><a href="#accueil" class="active">Accueil</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="accueil">
+    <div class="hero-left">
+      <p class="hero-label">Disponible pour des projets</p>
+      <h1 class="hero-name">
+        Ton Prénom<br>
+        <span>Ton Nom</span>
+      </h1>
+      <p class="hero-subtitle">
+        Ingénieur Numérique &amp; Pédagogique · Je crée des expériences d'apprentissage à travers le code, les jeux et le design.
+      </p>
+      <div class="hero-tags">
+        <span class="tag">⚡ Développement</span>
+        <span class="tag">🎮 Game design</span>
+        <span class="tag">📚 Pédagogie</span>
+        <span class="tag">🌐 Web</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#projets" class="btn btn-primary">Voir mes projets →</a>
+        <a href="#contact" class="btn btn-outline">Me contacter</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box reveal">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Années</div>
+      </div>
+      <div class="stat-box reveal">
+        <div class="stat-num">12</div>
+        <div class="stat-label">Projets</div>
+      </div>
+      <div class="stat-box reveal">
+        <div class="stat-num">800</div>
+        <div class="stat-label">Apprenants</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projets">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Portfolio</p>
+      <h2 class="section-title">Mes réalisations</h2>
+    </div>
+
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">Tout</button>
+      <button class="filter-btn" data-filter="jeu">Jeux</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="contenu">Contenus</button>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card reveal" data-cat="jeu">
+        <div class="project-icon icon-jeu">🎮</div>
+        <div class="project-title">Jeu éducatif XYZ</div>
+        <div class="project-tech">Game design · Pédagogie</div>
+        <span class="badge badge-jeu">Jeu</span>
+      </div>
+      <div class="project-card reveal" data-cat="web">
+        <div class="project-icon icon-web">💻</div>
+        <div class="project-title">Plateforme e-learning</div>
+        <div class="project-tech">HTML · CSS · JS</div>
+        <span class="badge badge-web">Web</span>
+      </div>
+      <div class="project-card reveal" data-cat="contenu">
+        <div class="project-icon icon-cont">🎬</div>
+        <div class="project-title">Cours vidéo interactif</div>
+        <div class="project-tech">Vidéo · LMS · SCORM</div>
+        <span class="badge badge-cont">Contenu</span>
+      </div>
+      <div class="project-card reveal" data-cat="jeu">
+        <div class="project-icon icon-jeu">🧩</div>
+        <div class="project-title">Quiz gamifié</div>
+        <div class="project-tech">JS · UX · Logique</div>
+        <span class="badge badge-jeu">Jeu</span>
+      </div>
+      <div class="project-card reveal" data-cat="web">
+        <div class="project-icon icon-web">🛠</div>
+        <div class="project-title">Outil pédagogique</div>
+        <div class="project-tech">App · Python · UX</div>
+        <span class="badge badge-web">Web</span>
+      </div>
+      <div class="project-card reveal" data-cat="contenu">
+        <div class="project-icon icon-cont">📦</div>
+        <div class="project-title">Module e-learning</div>
+        <div class="project-tech">Storyline · Design</div>
+        <span class="badge badge-cont">Contenu</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPÉTENCES -->
+  <section id="competences">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Expertise</p>
+      <h2 class="section-title">Compétences</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Développement</div>
+        <div class="skill-list">
+          <div class="skill-item">
+            <span>HTML / CSS</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span>JavaScript</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span>Python</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Pédagogie &amp; LMS</div>
+        <div class="skill-list">
+          <div class="skill-item">
+            <span>Storyline / Rise</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span>SCORM / xAPI</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span>Moodle</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Design &amp; UX</div>
+        <div class="skill-list">
+          <div class="skill-item">
+            <span>Figma</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span>Game Design</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span>Motion / Vidéo</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Travaillons ensemble</p>
+      <h2 class="section-title">Contact</h2>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-info reveal">
+        <p>Tu as un projet pédagogique ou numérique ?<br>Je suis disponible pour des collaborations, des missions freelance ou des projets long terme.</p>
+        <div class="contact-links">
+          <a href="mailto:ton@email.com" class="contact-link">
+            <div class="contact-link-icon">✉️</div>
+            ton@email.com
+          </a>
+          <a href="https://linkedin.com/in/ton-profil" target="_blank" class="contact-link">
+            <div class="contact-link-icon">💼</div>
+            LinkedIn / ton profil
+          </a>
+          <a href="https://github.com/ton-pseudo" target="_blank" class="contact-link">
+            <div class="contact-link-icon">🐙</div>
+            GitHub / ton-pseudo
+          </a>
+          <div class="contact-link">
+            <div class="contact-link-icon">📍</div>
+            Paris, France
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile card with AI hook -->
+      <div class="profile-card reveal">
+        <div class="profile-header">
+          <div class="avatar">TN</div>
+          <div>
+            <div class="profile-name">Ton Prénom Nom</div>
+            <div class="profile-role">Ingénieur Numérique &amp; Pédagogique</div>
+            <div class="availability">Disponible</div>
+          </div>
+        </div>
+        <p class="profile-bio">
+          Ta phrase d'accroche ici — ce qui te rend unique et ce que tu apportes à chaque projet.
+        </p>
+        <button class="profile-ai-btn" id="ai-btn" onclick="generateAccroche()">
+          ✨ Générer mon accroche IA →
+        </button>
+        <div id="ai-response"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2025 Ton Prénom Nom</span>
+    <span>Fait avec 💜 &amp; du code</span>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
