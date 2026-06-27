@@ -8,6 +8,78 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Project modal overlay ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,20,0.72);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal-box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2rem 2.2rem;
+      max-width: 480px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.22);
+      animation: modalIn .25s cubic-bezier(.22,1,.36,1);
+    }
+    @keyframes modalIn {
+      from { transform: translateY(18px) scale(.97); opacity:0; }
+      to   { transform: none; opacity:1; }
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem; right: 1.2rem;
+      background: none; border: none; font-size: 1.4rem;
+      cursor: pointer; color: #888; line-height: 1;
+    }
+    .modal-close:hover { color: #222; }
+    .modal-emoji { font-size: 2rem; margin-bottom: .6rem; }
+    .modal-title { font-family: 'Syne', sans-serif; font-size: 1.25rem; font-weight: 700; margin: 0 0 .3rem; }
+    .modal-tech  { font-size: .8rem; color: #888; margin-bottom: 1.2rem; }
+    .modal-links { display: flex; flex-direction: column; gap: .7rem; }
+    .modal-link {
+      display: flex; align-items: center; gap: .7rem;
+      padding: .75rem 1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: .88rem;
+      font-weight: 500;
+      border: 1.5px solid #e5e7eb;
+      color: #222;
+      transition: border-color .18s, background .18s;
+    }
+    .modal-link:hover { border-color: #6c63ff; background: #f5f4ff; }
+    .modal-link-icon { font-size: 1.1rem; }
+    .modal-link span { flex:1; }
+    .modal-link .arrow { color: #aaa; font-size: .85rem; }
+    .modal-link:hover .arrow { color: #6c63ff; }
+
+    /* ── Extra badge colours ── */
+    .badge-algo { background: #f3e8ff; color: #7c3aed; }
+    .badge-3d   { background: #fff7ed; color: #c2410c; }
+    .badge-lms  { background: #ecfdf5; color: #065f46; }
+    .badge-ia   { background: #fef9c3; color: #854d0e; }
+
+    /* ── project-card: keep uniform height & show description ── */
+    .project-card { position: relative; }
+    .project-desc {
+      font-size: .78rem;
+      color: #888;
+      margin: .35rem 0 .6rem;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
 
@@ -49,8 +121,9 @@
         <div class="stat-label">Années</div>
       </div>
       <div class="stat-box reveal">
-        <div class="stat-num">10</div>
+        <div class="stat-num">10+</div>
         <div class="stat-label">Projets</div>
+      </div>
     </div>
   </section>
 
@@ -63,50 +136,133 @@
 
     <div class="filter-bar reveal">
       <button class="filter-btn active" data-filter="all">Tout</button>
-      <button class="filter-btn" data-filter="jeu">Jeux</button>
-      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="web">Sites web</button>
+      <button class="filter-btn" data-filter="jeu">Jeux &amp; 3D</button>
+      <button class="filter-btn" data-filter="lms">LMS / E-learning</button>
       <button class="filter-btn" data-filter="contenu">Contenus</button>
+      <button class="filter-btn" data-filter="ia">IA &amp; Algo</button>
     </div>
 
     <div class="projects-grid">
+
+      <!-- ── WEB ── -->
+      <div class="project-card reveal" data-cat="web"
+           data-modal="modal-web">
+        <div class="project-icon icon-web">💻</div>
+        <div class="project-title">Sites web codés</div>
+        <div class="project-desc">2 projets HTML · CSS · JavaScript développés from scratch</div>
+        <div class="project-tech">HTML · CSS · JavaScript</div>
+        <span class="badge badge-web">Web</span>
+      </div>
+
+      <div class="project-card reveal" data-cat="web">
+        <div class="project-icon icon-web">🎨</div>
+        <div class="project-title">Site Canva</div>
+        <div class="project-desc">Site portfolio conçu sur Canva — design sans code</div>
+        <div class="project-tech">Canva · Design</div>
+        <a href="https://testspfb.my.canva.site/lea-pelmel/" target="_blank" class="badge badge-web" style="text-decoration:none;cursor:pointer;">↗ Voir le site</a>
+      </div>
+
+      <!-- ── JEUX & 3D ── -->
       <div class="project-card reveal" data-cat="jeu">
         <div class="project-icon icon-jeu">🎮</div>
-        <div class="project-title">Jeu éducatif XYZ</div>
-        <div class="project-tech">Game design · Pédagogie</div>
+        <div class="project-title">Serious Game Unity</div>
+        <div class="project-desc">Jeu éducatif avec scénario pédagogique, game design doc et maquettes</div>
+        <div class="project-tech">Unity · Game Design · Pédagogie</div>
         <span class="badge badge-jeu">Jeu</span>
       </div>
-      <div class="project-card reveal" data-cat="web">
-        <div class="project-icon icon-web">💻</div>
-        <div class="project-title">Plateforme e-learning</div>
-        <div class="project-tech">HTML · CSS · JS</div>
-        <span class="badge badge-web">Web</span>
+
+      <div class="project-card reveal" data-cat="jeu">
+        <div class="project-icon icon-jeu">😸</div>
+        <div class="project-title">Projets Scratch</div>
+        <div class="project-desc">2 projets interactifs réalisés sur Scratch</div>
+        <div class="project-tech">Scratch · Logique · Animation</div>
+        <span class="badge badge-jeu">Jeu</span>
       </div>
+
+      <div class="project-card reveal" data-cat="jeu">
+        <div class="project-icon icon-3d" style="font-size:1.6rem">🌐</div>
+        <div class="project-title">Expérience A-Frame (VR)</div>
+        <div class="project-desc">Scène de réalité virtuelle web avec A-Frame</div>
+        <div class="project-tech">A-Frame · HTML · WebVR</div>
+        <span class="badge badge-3d">3D / VR</span>
+      </div>
+
+      <div class="project-card reveal" data-cat="jeu">
+        <div class="project-icon" style="font-size:1.6rem">🟠</div>
+        <div class="project-title">Modélisation Blender</div>
+        <div class="project-desc">Création et rendu 3D réalisés avec Blender</div>
+        <div class="project-tech">Blender · 3D · Rendu</div>
+        <span class="badge badge-3d">3D / VR</span>
+      </div>
+
+      <!-- ── LMS ── -->
+      <div class="project-card reveal" data-cat="lms">
+        <div class="project-icon icon-cont">🛠</div>
+        <div class="project-title">Moodle — Admin &amp; SCORM</div>
+        <div class="project-desc">Modifications administratives + intégration de modules SCORM sur une instance existante</div>
+        <div class="project-tech">Moodle · SCORM · Administration</div>
+        <span class="badge badge-lms">LMS</span>
+      </div>
+
+      <div class="project-card reveal" data-cat="lms">
+        <div class="project-icon icon-cont">🎓</div>
+        <div class="project-title">Moodle — Installation complète</div>
+        <div class="project-desc">Installation from scratch, plugins, mise en place d'une formation complète</div>
+        <div class="project-tech">Moodle · Plugins · Formation</div>
+        <a href="https://sourcedinspi.eu/moodle/" target="_blank" class="badge badge-lms" style="text-decoration:none;cursor:pointer;">↗ Voir la plateforme</a>
+      </div>
+
+      <!-- ── CONTENUS ── -->
       <div class="project-card reveal" data-cat="contenu">
-        <div class="project-icon icon-cont">🎬</div>
-        <div class="project-title">Cours vidéo interactif</div>
-        <div class="project-tech">Vidéo · LMS · SCORM</div>
+        <div class="project-icon icon-cont">✨</div>
+        <div class="project-title">Projets Genially</div>
+        <div class="project-desc">Plusieurs créations interactives (présentations, infographies, escape games…)</div>
+        <div class="project-tech">Genially · Design · Interactivité</div>
         <span class="badge badge-cont">Contenu</span>
       </div>
-      <div class="project-card reveal" data-cat="jeu">
-        <div class="project-icon icon-jeu">🧩</div>
-        <div class="project-title">Quiz gamifié</div>
-        <div class="project-tech">JS · UX · Logique</div>
-        <span class="badge badge-jeu">Jeu</span>
-      </div>
-      <div class="project-card reveal" data-cat="web">
-        <div class="project-icon icon-web">🛠</div>
-        <div class="project-title">Outil pédagogique</div>
-        <div class="project-tech">App · Python · UX</div>
-        <span class="badge badge-web">Web</span>
-      </div>
+
       <div class="project-card reveal" data-cat="contenu">
         <div class="project-icon icon-cont">📦</div>
-        <div class="project-title">Module e-learning</div>
-        <div class="project-tech">Storyline · Design</div>
+        <div class="project-title">Modules Articulate 360</div>
+        <div class="project-desc">Modules e-learning exportés en SCORM avec Storyline / Rise</div>
+        <div class="project-tech">Articulate · SCORM · Storyline</div>
         <span class="badge badge-cont">Contenu</span>
       </div>
+
+      <!-- ── IA & ALGO ── -->
+      <div class="project-card reveal" data-cat="ia">
+        <div class="project-icon" style="font-size:1.6rem">🧠</div>
+        <div class="project-title">Algorithmique &amp; IA</div>
+        <div class="project-desc">Projets réalisés avec EZY Prolog, Protégé et Weka — logique, ontologies, machine learning</div>
+        <div class="project-tech">Prolog · Protégé · Weka</div>
+        <span class="badge badge-ia">IA / Algo</span>
+      </div>
+
     </div>
   </section>
+
+  <!-- MODAL — Sites web codés -->
+  <div class="modal-overlay" id="modal-web" role="dialog" aria-modal="true" aria-label="Sites web codés">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('modal-web')" aria-label="Fermer">✕</button>
+      <div class="modal-emoji">💻</div>
+      <div class="modal-title">Sites web codés</div>
+      <div class="modal-tech">HTML · CSS · JavaScript</div>
+      <div class="modal-links">
+        <a class="modal-link" href="https://ingeforma12-collab2e34.github.io/js-todo-app/" target="_blank">
+          <span class="modal-link-icon">✅</span>
+          <span>Todo App JS — GitHub Pages</span>
+          <span class="arrow">↗</span>
+        </a>
+        <a class="modal-link" href="#" target="_blank" style="opacity:.5;pointer-events:none;cursor:not-allowed;">
+          <span class="modal-link-icon">🔒</span>
+          <span>2e projet — bientôt en ligne</span>
+          <span class="arrow">—</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- COMPÉTENCES -->
   <section id="competences">
@@ -183,7 +339,7 @@
             <div class="contact-link-icon">✉️</div>
             christelkhoueiry03@gmail.com
           </a>
-          <a href="www.linkedin.com/in/christel-el-khoueiry-a9b885278" target="_blank" class="contact-link">
+          <a href="https://www.linkedin.com/in/christel-el-khoueiry-a9b885278" target="_blank" class="contact-link">
             <div class="contact-link-icon">💼</div>
             LinkedIn
           </a>
@@ -194,7 +350,6 @@
         </div>
       </div>
 
-      <!-- Profile card with AI hook -->
       <div class="profile-card reveal">
         <div class="profile-header">
           <div class="avatar">CE</div>
@@ -213,10 +368,57 @@
 
   <!-- FOOTER -->
   <footer>
-    <span>© 2025 Christel EL KHOUEIRY </span>
+    <span>© 2025 Christel EL KHOUEIRY</span>
     <span>Fait avec 💜 &amp; du code</span>
   </footer>
 
   <script src="main.js"></script>
+  <script>
+    /* ── Modal ── */
+    function openModal(id) {
+      document.getElementById(id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    /* Close on overlay click */
+    document.querySelectorAll('.modal-overlay').forEach(el => {
+      el.addEventListener('click', e => {
+        if (e.target === el) closeModal(el.id);
+      });
+    });
+
+    /* Close on Escape */
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape')
+        document.querySelectorAll('.modal-overlay.open')
+          .forEach(el => closeModal(el.id));
+    });
+
+    /* Cards with data-modal open the modal; others keep normal behaviour */
+    document.querySelectorAll('.project-card[data-modal]').forEach(card => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => openModal(card.dataset.modal));
+    });
+
+    /* ── Filter bar (keep your existing logic or use this) ── */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        cards.forEach(c => {
+          const match = f === 'all' || c.dataset.cat === f;
+          c.style.display = match ? '' : 'none';
+        });
+      });
+    });
+  </script>
 </body>
 </html>
